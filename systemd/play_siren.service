@@ -1,0 +1,12 @@
+[Unit]
+Description=Play alarm siren trigger pin pulse
+After=multi-user.target
+
+[Service]
+Type=oneshot
+User=pizero2w
+WorkingDirectory=/home/pizero2w/tundra-alarm-ecu
+ExecStart=/usr/bin/python3 /home/pizero2w/tundra-alarm-ecu/play_pin.py
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,6 @@
+sudo cp ~/tundra-alarm-ecu/systemd/alarm_core.service /etc/systemd/system/
+sudo cp ~/tundra-alarm-ecu/systemd/gps2mqtt.service /etc/systemd/system/
+
+sudo systemctl daemon-reload
+sudo systemctl enable alarm_core.service
+sudo systemctl enable gps2mqtt.service

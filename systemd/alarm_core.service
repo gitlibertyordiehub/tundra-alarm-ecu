@@ -1,0 +1,15 @@
+[Unit]
+Description=Tundra Alarm ECU Core Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pizero2w
+WorkingDirectory=/home/pizero2w/tundra-alarm-ecu
+ExecStart=/usr/bin/python3 /home/pizero2w/tundra-alarm-ecu/alarm_core.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
