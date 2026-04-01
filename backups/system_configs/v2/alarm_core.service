@@ -1,5 +1,5 @@
 [Unit]
-Description=GPS to MQTT bridge
+Description=Tundra Alarm ECU Core Service
 After=network-online.target
 Wants=network-online.target
 
@@ -7,10 +7,9 @@ Wants=network-online.target
 Type=simple
 User=pizero2w
 WorkingDirectory=/home/pizero2w/tundra-alarm-ecu
-EnvironmentFile=/home/pizero2w/tundra-alarm-ecu/.env.mqtt
-ExecStart=/usr/bin/python3 /home/pizero2w/tundra-alarm-ecu/gps_clean_mqtt.py
+ExecStart=/usr/bin/python3 /home/pizero2w/tundra-alarm-ecu/alarm_core.py
 Restart=always
-RestartSec=10
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target

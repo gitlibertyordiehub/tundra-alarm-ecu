@@ -1,0 +1,56 @@
+TUNDRA STACK HEALTH NOTE
+Generated: Tue Mar 31 12:53:30 PM CDT 2026
+
+=== HOST ===
+Hostname: pizero2w
+Uptime: up 2 hours, 32 minutes
+
+=== SERVICES ===
+gps2mqtt.service: not installed
+alarm_core.service: not installed
+
+=== UART / GPS ===
+/dev/serial0 -> /dev/ttyS0
+gps2mqtt status: active
+
+=== I2C / MPU ===
+MPU-6050 not detected at 0x68
+
+=== CAN ===
+can0             UP             <NOARP,UP,LOWER_UP,ECHO> 
+can1             DOWN           <NOARP,ECHO> 
+
+--- can0 details ---
+3: can0: <NOARP,UP,LOWER_UP,ECHO> mtu 16 qdisc pfifo_fast state UP mode DEFAULT group default qlen 10
+    link/can  promiscuity 0 allmulti 0 minmtu 0 maxmtu 0 
+    can <LISTEN-ONLY> state ERROR-ACTIVE restart-ms 0 
+	  bitrate 500000 sample-point 0.875
+	  tq 125 prop-seg 6 phase-seg1 7 phase-seg2 2 sjw 1 brp 1
+	  mcp251x: tseg1 3..16 tseg2 2..8 sjw 1..4 brp 1..64 brp_inc 1
+	  clock 8000000 numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 65536 tso_max_segs 65535 gro_max_size 65536 gso_ipv4_max_size 65536 gro_ipv4_max_size 65536 parentbus spi parentdev spi0.0 
+
+--- can1 details ---
+4: can1: <NOARP,ECHO> mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can  promiscuity 0 allmulti 0 minmtu 0 maxmtu 0 
+    can state STOPPED restart-ms 0 
+	  mcp251x: tseg1 3..16 tseg2 2..8 sjw 1..4 brp 1..64 brp_inc 1
+	  clock 8000000 numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 65536 tso_max_segs 65535 gro_max_size 65536 gso_ipv4_max_size 65536 gro_ipv4_max_size 65536 parentbus spi parentdev spi0.1 
+
+=== MCP2515 INIT LOG ===
+
+=== CONFIG SNIPPET ===
+8:dtparam=spi=on
+55:dtparam=spi=on
+56:dtoverlay=mcp2515-can1,oscillator=16000000,interrupt=25
+57:dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=23
+61:dtparam=spi=on
+62:dtoverlay=mcp2515-can1,oscillator=16000000,interrupt=25
+63:dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=23
+
+=== REPO STATUS ===
+ M gps2mqtt.sh
+ M systemd/gps2mqtt.service
+?? gps_clean_mqtt.py
+?? notes/
+?? scripts/
+

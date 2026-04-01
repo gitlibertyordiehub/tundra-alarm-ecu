@@ -7,7 +7,6 @@ Wants=network-online.target
 Type=simple
 User=pizero2w
 WorkingDirectory=/home/pizero2w/tundra-alarm-ecu
-EnvironmentFile=/home/pizero2w/tundra-alarm-ecu/.env.mqtt
 ExecStart=/usr/bin/python3 /home/pizero2w/tundra-alarm-ecu/gps_clean_mqtt.py
 Restart=always
 RestartSec=10
